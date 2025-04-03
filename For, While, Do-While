@@ -1,0 +1,217 @@
+Factorial de un numero
+import java.util.Scanner;
+public class Factorial {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Ingrese un número: ");
+        int num = scanner.nextInt();
+        int factorial = 1;
+        for (int i = 1; i <= num; i++) {
+            factorial *= i;
+        }
+        System.out.println("El factorial de " + num + " es " + factorial);
+    }
+}
+Conteo
+import java.util.Scanner;
+public class ConteoNumeros {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("¿Cuántos números desea ingresar?: ");
+        int cantidad = scanner.nextInt();
+        int mayores = 0, menores = 0, iguales = 0;
+        for (int i = 0; i < cantidad; i++) {
+            System.out.print("Ingrese un número: ");
+            int num = scanner.nextInt();
+            if (num > 0) mayores++;
+            else if (num < 0) menores++;
+            else iguales++;
+        }
+        System.out.println("Mayores a 0: " + mayores);
+        System.out.println("Menores a 0: " + menores);
+        System.out.println("Iguales a 0: " + iguales);
+    }
+Contar letras a en una palabra 
+import java.util.Scanner;
+public class Letra {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Ingrese una palabra: ");
+        String palabra = scanner.next();
+        int contador = 0;
+        for (char letra : palabra.toCharArray()) {
+            if (letra == 'a' || letra == 'A') contador++;
+        }
+        System.out.println("La letra 'a' aparece " + contador + " veces.");
+    }
+}
+Imprimir números divisibles por 3 y 5
+public class Division {
+    public static void main(String[] args) {
+        for (int i = 1; i <= 100; i++) {
+            if (i % 3 == 0 && i % 5 == 0) {
+                System.out.println(i);
+            }
+        }
+    }
+}
+
+Contador de dígitos
+import java.util.Scanner;
+public class Digitos {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Ingrese un número entero: ");
+        int num = scanner.nextInt();
+        int contador = String.valueOf(num).length();
+        System.out.println("El número tiene " + contador + " dígitos.");
+    }
+}
+Adivinar el numero 
+import java.util.Scanner;
+import java.util.Random;
+public class Adivinar {
+    public static void main(String[] args) {
+        Random rand = new Random();
+        int numeroSecreto = rand.nextInt(100) + 1;
+        Scanner scanner = new Scanner(System.in);
+        int intento;
+        do {
+            System.out.print("Adivine el número (entre 1 y 100): ");
+            intento = scanner.nextInt();
+            if (intento < numeroSecreto) {
+                System.out.println("Muy bajo!");
+            } else if (intento > numeroSecreto) {
+                System.out.println("Muy alto!");
+            }
+        } while (intento != numeroSecreto);
+        System.out.println("¡Correcto!");
+    }
+}
+Vocales o No vocales
+import java.util.Scanner;
+public class Vocales {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        char letra;
+        do {
+            System.out.print("Ingrese una letra (espacio para salir): ");
+            letra = scanner.next().charAt(0);
+            if (Character.isLetter(letra)) {
+                if ("aeiouAEIOU".indexOf(letra) != -1) {
+                    System.out.println("Es una vocal");
+                } else {
+                    System.out.println("Es una consonante");
+                }
+            }
+        } while (letra != ' ');
+    }
+}
+
+Calcular la media de números positivos 
+import java.util.Scanner;
+public class Media {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int suma = 0, contador = 0, num;
+        do {
+            System.out.print("Ingrese un número positivo (negativo para salir): ");
+            num = scanner.nextInt();
+            if (num >= 0) {
+                suma += num;
+                contador++;
+            }
+        } while (num >= 0);
+        if (contador > 0) {
+            System.out.println("La media es: " + (suma / (double) contador));
+        } else {
+            System.out.println("No ingresó números positivos.");
+        }
+    }
+}
+
+
+import java.util.Scanner;
+public class Calculadora {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int opcion;
+        do {
+            System.out.println("\nMenú de Calculadora");
+            System.out.println("1. Sumar");
+            System.out.println("2. Restar");
+            System.out.println("3. Multiplicar");
+            System.out.println("4. Dividir");
+            System.out.println("5. Salir");
+            System.out.print("Seleccione una opción: ");
+            opcion = scanner.nextInt();
+            if (opcion >= 1 && opcion <= 4) {
+                System.out.print("Ingrese el primer número: ");
+                double num1 = scanner.nextDouble();
+                System.out.print("Ingrese el segundo número: ");
+                double num2 = scanner.nextDouble();
+                switch (opcion) {
+                    case 1 -> System.out.println("Resultado: " + (num1 + num2));
+                    case 2 -> System.out.println("Resultado: " + (num1 - num2));
+                    case 3 -> System.out.println("Resultado: " + (num1 * num2));
+                    case 4 -> {
+                        if (num2 != 0) {
+                            System.out.println("Resultado: " + (num1 / num2));
+                        } else {
+                            System.out.println("No se puede dividir por cero.");
+                        }
+                    }
+                }
+            }
+        } while (opcion != 5);
+        System.out.println("Saliendo de la calculadora...");
+    }
+}
+
+
+import java.util.Scanner;
+public class Impares {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Ingrese un número entero positivo: ");
+        int num = scanner.nextInt();
+        int i = 1;
+        do {
+            System.out.println(i);
+            i += 2;
+        } while (i <= num);
+    }
+}
+
+import java.util.Scanner;
+public class Secuencia {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Ingrese un número entero positivo: ");
+        int num = scanner.nextInt();
+        int i = 1;
+        do {
+            System.out.println("El cuadrado de " + i + " es: " + (i * i));
+            i++;
+        } while (i <= num);
+    }
+}
+
+
+import java.util.Scanner;
+public class Aritmetica {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Ingrese el primer número de la secuencia: ");
+        int inicio = scanner.nextInt();
+        System.out.print("Ingrese la diferencia entre los números: ");
+        int diferencia = scanner.nextInt();
+        System.out.print("Ingrese el número máximo hasta el cual se generará la secuencia: ");
+        int maximo = scanner.nextInt();
+        int actual = inicio;
+        do {
+            System.out.println(actual);
+            actual += diferencia;
+        } while (actual <= maximo);
+    }
+}
